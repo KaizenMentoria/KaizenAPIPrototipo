@@ -10,6 +10,9 @@ namespace KaizenAPI.Controllers
     [Route("api/[controller]")]
     public class Aluno : ControllerBase
     {
-        
+        public string Get()
+        {
+            return "Aluno";
+        }
     }
 }
