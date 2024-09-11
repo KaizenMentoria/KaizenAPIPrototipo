@@ -1,0 +1,79 @@
+# Default behavior: Auto-normalize text files
+* text=auto
+
+# C# Source Code
+*.cs text eol=lf
+*.csproj text eol=lf
+*.sln text eol=lf
+*.props text eol=lf
+
+# HTML, CSS, and JavaScript/TypeScript (Frontend Development)
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+
+# Framework-specific files for React, Vue, Svelte
+*.vue text eol=lf          # Vue single file components
+*.svelte text eol=lf       # Svelte single file components
+
+# JSON, YAML, and XML configuration files
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.xml text eol=lf
+
+# Markdown, plain text, and documentation files
+*.md text eol=lf
+*.txt text eol=lf
+
+# Shell, batch scripts, and environment files
+*.sh text eol=lf
+*.bat text eol=lf
+*.ps1 text eol=lf
+*.env text eol=lf
+
+# Docker and Kubernetes files (for containerization)
+Dockerfile text eol=lf
+docker-compose.yml text eol=lf
+
+# CI/CD pipeline configuration
+.github/* text eol=lf
+.gitlab-ci.yml text eol=lf
+
+# Log files (text files, but optional to include in the repo)
+*.log text eol=lf
+
+# Binary files - Generally discouraged for KaizenAPI project, but if needed:
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary       # Icons, small graphics (if used for docs or static assets)
+*.svg binary       # Scalable Vector Graphics (if needed for frontend)
+*.woff binary      # Web fonts (if required in frontend)
+*.woff2 binary     # Compressed web fonts (if needed)
+
+# Compiled files and binaries - Should NOT be included in the repository
+*.dll binary
+*.exe binary
+*.pdb binary
+*.so binary
+*.dylib binary
+*.o binary
+*.obj binary
+
+# Archives and compressed files (should be avoided)
+*.zip binary
+*.tar binary
+*.gz binary
+*.7z binary
+
+# Ignore large and dynamic binaries (e.g., images, videos) if uploaded by mistake
+*.mp4 binary
+*.mp3 binary
+*.mov binary
+*.avi binary
+*.mkv binary

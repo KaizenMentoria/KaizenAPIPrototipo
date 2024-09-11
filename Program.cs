@@ -26,6 +26,7 @@ public class Program
         builder.Services.AddSwaggerGen();
         builder.Services.AddCors(options =>
         {
+            // para permitir requisições de qualquer origem (aplicação front-end)
             options.AddDefaultPolicy(builder => builder.AllowAnyOrigin()
             .AllowAnyMethod()
             .AllowAnyHeader());
