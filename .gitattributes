@@ -16,8 +16,8 @@
 *.tsx text eol=lf
 
 # Framework-specific files for React, Vue, Svelte
-*.vue text eol=lf          # Vue single file components
-*.svelte text eol=lf       # Svelte single file components
+*.vue text eol=lf
+*.svelte text eol=lf
 
 # JSON, YAML, and XML configuration files
 *.json text eol=lf
@@ -52,10 +52,10 @@ docker-compose.yml text eol=lf
 *.jpg binary
 *.jpeg binary
 *.gif binary
-*.ico binary       # Icons, small graphics (if used for docs or static assets)
-*.svg binary       # Scalable Vector Graphics (if needed for frontend)
-*.woff binary      # Web fonts (if required in frontend)
-*.woff2 binary     # Compressed web fonts (if needed)
+*.ico binary
+*.svg binary
+*.woff binary
+*.woff2 binary
 
 # Compiled files and binaries - Should NOT be included in the repository
 *.dll binary
