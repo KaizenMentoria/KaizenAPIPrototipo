@@ -40,8 +40,9 @@ Dockerfile text eol=lf
 docker-compose.yml text eol=lf
 
 # CI/CD pipeline configuration
-.github/* text eol=lf
-.gitlab-ci.yml text eol=lf
+# Specify file types explicitly, instead of the directory
+.github/workflows/*.yml text eol=lf
+.github/actions/*.yml text eol=lf
 
 # Log files (text files, but optional to include in the repo)
 *.log text eol=lf
