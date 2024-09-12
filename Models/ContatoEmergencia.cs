@@ -2,8 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using KaizenAPI.DTOs.ContatoEmergencia;
 
-namespace PrototipoKaizen.Models
+namespace KaizenAPI.Models
 {
     public class ContatoEmergencia :Pessoa
     {
@@ -11,5 +12,12 @@ namespace PrototipoKaizen.Models
         public bool Ativo { get; set; }
         public Guid IdPessoa { get; set; }
         public string? NomePessoa { get; set; }
+    
+        public ContatoEmergencia(ContatoEmergenciaDto dto)
+        {
+            NomePessoa = dto.Nome;
+
+            ContatoEmergencia.Telefone = dto.Telefone;
+        }
     }
 }
