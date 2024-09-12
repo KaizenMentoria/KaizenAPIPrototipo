@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PrototipoKaizen.Models
+namespace KaizenAPI.Models
 {
     public class Coordenador : Pessoa
     {
