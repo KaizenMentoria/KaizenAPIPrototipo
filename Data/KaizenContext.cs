@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using KaizenAPI.Models;
+using System;
 
 namespace KaizenAPI.Data
 {
@@ -15,7 +16,21 @@ namespace KaizenAPI.Data
         {
             modelBuilder.Entity<Aluno>(entity =>
             {
-                entity.OwnsOne(a => a.Endereco);
+                entity.HasKey(a => a.Id);
+
+                // Use OwnsMany for the collection of Enderecos
+                entity.OwnsMany(a => a.Enderecos, enderecoBuilder =>
+                {
+                    // Configure the foreign key to Aluno
+                    enderecoBuilder.WithOwner().HasForeignKey("AlunoId");
+
+                    // Configure a primary key for Endereco
+                    enderecoBuilder.Property<Guid>("Id");
+                    enderecoBuilder.HasKey("Id");
+
+                    // Optionally configure properties
+                    // enderecoBuilder.Property(e => e.CEP).IsRequired();
+                });
             });
 
             base.OnModelCreating(modelBuilder);

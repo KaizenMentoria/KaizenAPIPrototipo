@@ -10,22 +10,22 @@ namespace KaizenAPI.Models
         public string Email { get; set; }
         public DateTime DataNascimento { get; set; }
         public string Telefone { get; set; }
-        public ICollection<Endereco> Endereco { get; set; }
+        public ICollection<Endereco>? Enderecos { get; set; }
 
-        // Parameterless constructor for EF Core
         public Aluno()
         {
+            Enderecos = new List<Endereco>();
         }
 
         // Constructor with parameters matching mapped properties
-        public Aluno(string nome, string email, DateTime dataNascimento, string telefone, Endereco endereco)
+        public Aluno(string nome, string email, DateTime dataNascimento, string telefone, ICollection<Endereco> enderecos)
         {
             Id = Guid.NewGuid();
             Nome = nome;
             Email = email;
             DataNascimento = dataNascimento;
             Telefone = telefone;
-            Endereco = endereco;
+            Enderecos = enderecos;
         }
     }
 }

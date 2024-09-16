@@ -1,3 +1,4 @@
+using System;
 using Microsoft.EntityFrameworkCore;
 
 namespace KaizenAPI.Models
@@ -5,6 +6,7 @@ namespace KaizenAPI.Models
     [Owned]
     public class Endereco
     {
+        public Guid Id { get; set; }
         public string CEP { get; set; }
         public string Logradouro { get; set; }
         public string Numero { get; set; }
