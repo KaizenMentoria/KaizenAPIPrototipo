@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace KaizenAPI.Models
 {
@@ -9,7 +10,7 @@ namespace KaizenAPI.Models
         public string Email { get; set; }
         public DateTime DataNascimento { get; set; }
         public string Telefone { get; set; }
-        public Endereco Endereco { get; set; }
+        public ICollection<Endereco> Endereco { get; set; }
 
         // Parameterless constructor for EF Core
         public Aluno()
