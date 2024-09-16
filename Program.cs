@@ -25,6 +25,8 @@ public class Program
         builder.Services.AddDbContext<KaizenContext>(
             options => options.UseNpgsql(builder.Configuration.GetConnectionString("KaizenDBConnectionString"))
         );
+        var connectionString = builder.Configuration.GetConnectionString("KaizenDBConnectionString");
+        System.Console.WriteLine($"Connection string used: {connectionString}");
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
