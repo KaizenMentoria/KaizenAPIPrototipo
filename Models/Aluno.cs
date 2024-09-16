@@ -1,9 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
-using KaizenAPI.DTOs.Aluno;
 
 namespace KaizenAPI.Models
 {
@@ -16,17 +11,19 @@ namespace KaizenAPI.Models
         public string Telefone { get; set; }
         public Endereco Endereco { get; set; }
 
-        public Aluno(CreateAlunoDTO novoAluno, Endereco endereco)
+        // Parameterless constructor for EF Core
+        public Aluno()
+        {
+        }
+
+        // Constructor with parameters matching mapped properties
+        public Aluno(string nome, string email, DateTime dataNascimento, string telefone, Endereco endereco)
         {
             Id = Guid.NewGuid();
-            Nome = novoAluno.Nome;
-            Email = novoAluno.Email;
-
-            DataNascimento = DateTime.ParseExact(
-                novoAluno.DataNascimento, "dd/MM/yyyy", CultureInfo.InvariantCulture
-            );
-
-            Telefone = novoAluno.Telefone;
+            Nome = nome;
+            Email = email;
+            DataNascimento = dataNascimento;
+            Telefone = telefone;
             Endereco = endereco;
         }
     }

@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
-using KaizenAPI.Controllers;
+using KaizenAPI.Models;
 
 namespace KaizenAPI.Data
 {
@@ -12,9 +7,18 @@ namespace KaizenAPI.Data
     {
         public KaizenContext(DbContextOptions<KaizenContext> options) : base(options)
         {
-            
         }
 
         public DbSet<Aluno> Alunos { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Aluno>(entity =>
+            {
+                entity.OwnsOne(a => a.Endereco);
+            });
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
