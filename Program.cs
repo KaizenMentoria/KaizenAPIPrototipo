@@ -26,7 +26,7 @@ public class Program
             options => options.UseNpgsql(builder.Configuration.GetConnectionString("KaizenDBConnectionString"))
         );
         var connectionString = builder.Configuration.GetConnectionString("KaizenDBConnectionString");
-        System.Console.WriteLine($"Connection string used: {connectionString}");
+        Console.WriteLine($"Connection string used: {connectionString}");
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
@@ -38,6 +38,7 @@ public class Program
             .AllowAnyMethod()
             .AllowAnyHeader());
         });
+        Console.WriteLine($"Environment: {builder.Environment.EnvironmentName}");
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
