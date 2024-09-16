@@ -23,9 +23,9 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddDbContext<KaizenContext>(
-            options => options.UseNpgsql(builder.Configuration.GetConnectionString("KaizenDBConnectionString"))
+            options => options.UseNpgsql(builder.Configuration.GetConnectionString("KaizenDBConnectionString-dev"))
         );
-        var connectionString = builder.Configuration.GetConnectionString("KaizenDBConnectionString");
+        var connectionString = builder.Configuration.GetConnectionString("KaizenDBConnectionString-dev");
         Console.WriteLine($"Connection string used: {connectionString}");
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
