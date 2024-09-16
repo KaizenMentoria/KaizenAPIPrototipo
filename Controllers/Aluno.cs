@@ -9,7 +9,8 @@ namespace KaizenAPI.Controllers
     [ApiController]
     [Route("api/[controller]")]
     public class Aluno : ControllerBase
-    {
+    {   
+        [HttpGet]
         public string Get()
         {
             return "Aluno";
