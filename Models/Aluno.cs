@@ -1,15 +1,13 @@
 using System;
 using System.Collections.Generic;
+using KaizenAPIPrototipo.Models;
 
 namespace KaizenAPI.Models
 {
-    public class Aluno
+    public class Aluno : Pessoa
     {
         public Guid Id { get; set; }
-        public string Nome { get; set; }
-        public string Email { get; set; }
         public DateTime DataNascimento { get; set; }
-        public string Telefone { get; set; }
         public ICollection<Endereco>? Enderecos { get; set; }
 
         public Aluno()
@@ -18,14 +16,16 @@ namespace KaizenAPI.Models
         }
 
         // Constructor with parameters matching mapped properties
-        public Aluno(string nome, string email, DateTime dataNascimento, string telefone, ICollection<Endereco> enderecos)
+        public Aluno(string primeiroNome, string sobrenome, string cpf, string rg, string telefone, string email, DateTime dataNascimento)
         {
-            Id = Guid.NewGuid();
-            Nome = nome;
+            PrimeiroNome = primeiroNome;
+            Sobrenome = sobrenome;
+            Cpf = cpf;
+            Rg = rg;
+            Telefone = telefone;
             Email = email;
             DataNascimento = dataNascimento;
-            Telefone = telefone;
-            Enderecos = enderecos;
+            Enderecos = new List<Endereco>();
         }
     }
 }
