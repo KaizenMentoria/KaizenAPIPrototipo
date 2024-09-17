@@ -28,6 +28,10 @@ namespace KaizenAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<string>("Cpf")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<DateTime>("DataNascimento")
                         .HasColumnType("timestamp with time zone");
 
@@ -35,7 +39,18 @@ namespace KaizenAPI.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Nome")
+                    b.Property<string>("PrimeiroNome")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Rg")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("SegundoNome")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Sobrenome")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -50,18 +65,10 @@ namespace KaizenAPI.Migrations
 
             modelBuilder.Entity("KaizenAPI.Models.Aluno", b =>
                 {
-                    b.OwnsMany("KaizenAPI.Models.Endereco", "Enderecos", b1 =>
+                    b.OwnsOne("KaizenAPI.Models.Endereco", "Endereco", b1 =>
                         {
-                            b1.Property<Guid>("Id")
-                                .ValueGeneratedOnAdd()
-                                .HasColumnType("uuid");
-
                             b1.Property<Guid>("AlunoId")
                                 .HasColumnType("uuid");
-
-                            b1.Property<string>("Bairro")
-                                .IsRequired()
-                                .HasColumnType("text");
 
                             b1.Property<string>("CEP")
                                 .IsRequired()
@@ -71,15 +78,35 @@ namespace KaizenAPI.Migrations
                                 .IsRequired()
                                 .HasColumnType("text");
 
-                            b1.Property<string>("DDD")
+                            b1.Property<Guid>("Id")
+                                .HasColumnType("uuid");
+
+                            b1.Property<string>("Numero")
                                 .IsRequired()
                                 .HasColumnType("text");
 
-                            b1.Property<string>("Localidade")
+                            b1.HasKey("AlunoId");
+
+                            b1.ToTable("Alunos");
+
+                            b1.WithOwner()
+                                .HasForeignKey("AlunoId");
+                        });
+
+                    b.OwnsMany("KaizenAPI.Models.Endereco", "Enderecos", b1 =>
+                        {
+                            b1.Property<Guid>("Id")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("uuid");
+
+                            b1.Property<Guid>("AlunoId")
+                                .HasColumnType("uuid");
+
+                            b1.Property<string>("CEP")
                                 .IsRequired()
                                 .HasColumnType("text");
 
-                            b1.Property<string>("Logradouro")
+                            b1.Property<string>("Complemento")
                                 .IsRequired()
                                 .HasColumnType("text");
 
@@ -87,19 +114,18 @@ namespace KaizenAPI.Migrations
                                 .IsRequired()
                                 .HasColumnType("text");
 
-                            b1.Property<string>("UF")
-                                .IsRequired()
-                                .HasColumnType("text");
-
                             b1.HasKey("Id");
 
                             b1.HasIndex("AlunoId");
 
-                            b1.ToTable("Endereco");
+                            b1.ToTable("Alunos_Enderecos");
 
                             b1.WithOwner()
                                 .HasForeignKey("AlunoId");
                         });
+
+                    b.Navigation("Endereco")
+                        .IsRequired();
 
                     b.Navigation("Enderecos");
                 });
