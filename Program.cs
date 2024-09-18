@@ -9,11 +9,11 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using KaizenAPI.Data;
+using KaizenAPIPrototipo.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace KaizenAPI;
+namespace KaizenAPIPrototipo;
 
 public class Program
 {
