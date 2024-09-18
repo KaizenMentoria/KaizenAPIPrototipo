@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using KaizenAPIPrototipo.Models;
 
-namespace KaizenAPI.Models
+namespace KaizenAPIPrototipo.Models
 {
     public class Aluno : Pessoa
     {
