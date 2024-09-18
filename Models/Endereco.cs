@@ -1,7 +1,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 
-namespace KaizenAPI.Models
+namespace KaizenAPIPrototipo.Models
 {
     [Owned]
     public class Endereco
