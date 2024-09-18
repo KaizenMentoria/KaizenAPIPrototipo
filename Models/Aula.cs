@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using KaizenAPI.Models;
+using KaizenAPIPrototipo.Models;
 using KaizenAPIPrototipo.Enums;
 
 namespace KaizenAPIPrototipo.Models
