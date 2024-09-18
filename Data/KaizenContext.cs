@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using KaizenAPI.Models;
+using KaizenAPIPrototipo.Models;
 using System;
 
-namespace KaizenAPI.Data
+namespace KaizenAPIPrototipo.Data
 {
     public class KaizenContext : DbContext
     {
